@@ -340,6 +340,7 @@ struct EmbeddedEmulatorEngineSettings
 	std::vector<StartupMediaOption> startup_media_options;
 	std::uint64_t engine_generation = 0;
 	bool state_operations_allowed = false;
+	bool enable_layout_plugin = true;
 };
 
 class EmbeddedEmulatorEngine

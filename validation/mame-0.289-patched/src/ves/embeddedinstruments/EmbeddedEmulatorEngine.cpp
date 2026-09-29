@@ -2562,9 +2562,6 @@ private:
 			"-mouseprovider", "none",
 			"-lightgunprovider", "none",
 			"-joystickprovider", "none",
-			"-plugins",
-			"-plugin", "layout",
-			"-pluginspath", settings.plugins_path,
 			"-noreadconfig",
 			"-nowriteconfig",
 			"-skip_gameinfo",
@@ -2576,6 +2573,14 @@ private:
 			"-audio_latency", "0",
 			"-nonvram_save"
 		};
+		if (settings.enable_layout_plugin)
+		{
+			args.insert(args.end(), { "-plugins", "-plugin", "layout", "-pluginspath", settings.plugins_path });
+		}
+		else
+		{
+			args.push_back("-noplugins");
+		}
 		if (!settings.native_midi_input_option.empty())
 		{
 			args.emplace_back("-" + settings.native_midi_input_option);
